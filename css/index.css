@@ -13,3 +13,8 @@ h2 {
 .call-to-action-text {
   margin-top: 50px;
 }
+
+.logo {
+  width: 100%;
+  max-width: 432px;
+}
