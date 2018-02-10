@@ -1,0 +1,12 @@
+.side-bar {
+  display: inline-block;
+  width: 10%;
+}
+
+.side-bar a {
+  text-align: center;
+}
+
+.main-body {
+  display: inline-block;
+}
