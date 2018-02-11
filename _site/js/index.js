@@ -3,6 +3,8 @@ $(document).ready(function(){
     var link, content
     event.preventDefault();
 
+    $('.navbar-collapse').removeClass('show')
+
     link = $(event.target)
     $('a').removeClass('active')
     link.addClass('active')
