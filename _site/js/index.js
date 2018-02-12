@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('a').removeClass('active')
     link.addClass('active')
 
-    start_or_stop_video(link.text())
+    // start_or_stop_video(link.text())
 
     $('.content').hide()
     content = '.' + link.data('content')
@@ -18,6 +18,8 @@ $(document).ready(function(){
 })
 
 function start_or_stop_video(text) {
+  var iframe = $('iframe').get(0)
+  if( iframe === undefined ) { return }
   if (text == 'Home' ) {
     startVideo()
   } else {

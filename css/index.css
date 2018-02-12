@@ -6,6 +6,11 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  text-align: center;
+  margin: 25px 0;
+}
+
 .header-text {
   margin-bottom: 25px;
 }
@@ -17,4 +22,17 @@ h2 {
 .logo {
   width: 100%;
   max-width: 432px;
+}
+
+.contact {
+  background-image: url(/images/logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 500px;
+}
+
+.contact h2, .contact p, .contact a {
+  text-align: center;
+  color: white;
+  font-weight: bold;
 }
