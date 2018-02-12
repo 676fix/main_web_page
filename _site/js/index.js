@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('a').removeClass('active')
     link.addClass('active')
 
-    // start_or_stop_video(link.text())
+    start_or_stop_video(link.text())
 
     $('.content').hide()
     content = '.' + link.data('content')
