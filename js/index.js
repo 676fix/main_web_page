@@ -8,7 +8,7 @@ $(document).ready(function(){
 })
 
 function queueMusic() {
-  if (actionCaptured === true ) { return }
+  if (musicQueued === true ) { return }
   musicQueued = true
   setTimeout(playSound, 210000);
 }
