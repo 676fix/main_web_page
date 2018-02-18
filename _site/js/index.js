@@ -1,8 +1,18 @@
+var actionCaptured = false;
+
 $(document).ready(function(){
-  $( '.page' ).on('click', displayPage)
-  $( 'nav a' ).on('click', collapseNavBar)
-  $( '#facebook-register' ).on('submit', submitForm)
+  $('*').on('click focus focusin focusout hover keydown keypress keyup mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup scroll', captureAction)
+  $( '.page' ).on('click', displayPage);
+  $( 'nav a' ).on('click', collapseNavBar);
+  $( '#facebook-register' ).on('submit', submitForm);
 })
+
+function captureAction() {
+  if (actionCaptured === true ) { return }
+  actionCaptured = true
+  startVideo()
+  setTimeout(playSound, 210000);
+}
 
 function displayPage(event) {
   var link, content
@@ -34,7 +44,7 @@ function stopVideo() {
   iframe.src = iframe.src.replace(/[?].+/, '')
 }
 
-function startVideo(src) {
+function startVideo() {
   var iframe = $('iframe').get(0)
   iframe.src = iframe.src + '?autoplay=1'
 }
@@ -62,4 +72,18 @@ function submitForm(event) {
         $('.form-error').hide()
       }
    })
+}
+
+function playSound() {
+  var audio = $('#playSound')[0]
+  audio.currentTime = 25;
+  audio.play();
+}
+
+function playSoundWhenVideoEnds() {
+  setTimeout(playSound, 3000);
+}
+
+function alertFunc() {
+  alert('hello!')
 }
