@@ -1,10 +1,7 @@
-var soundTimeoutId
-
 $('document').ready(function(){
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
   $( '#video-676fix' ).on('click', playVideo)
-  soundTimeoutId = setTimeout(playSound, 210000)
 })
 
 function collapseNavBar(event) {
@@ -32,21 +29,10 @@ function submitForm(event) {
    })
 }
 
-function playSound() {
-  var audio = new Audio('/sounds/solidarity-forever.mp3')
-  audio.currentTime = 25;
-  audio.play();
-}
-
 function playVideo() {
     var video = $('#video-676fix')[0]
-    var timeoutSeconds
-    clearTimeout(soundTimeoutId)
-
     if( video.paused === true ) {
-      timeoutSeconds = 210000 - (Math.round(video.currentTime * 1000))
       video.play()
-      soundTimeoutId = setTimeout(playSound, timeoutSeconds)
     } else {
       video.pause()
     }
