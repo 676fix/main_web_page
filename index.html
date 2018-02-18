@@ -2,9 +2,10 @@
 layout: default
 ---
 <div class='home content'>
+  <button id='playSound' style='border: solid black 2px'>Play Me</button>
   <div class='container'>
     <div class='row justify-content-sm-center'>
-     <video width="560" height="315" id='video-676fix'><source src="videos/676fix.mp4#t=11" type="video/mp4"></video>
+     <video id='video-676fix'><source src="videos/676fix.mp4#t=11" type="video/mp4"></video>
     </div>
     <button class='video-poster-image'></button>
   </div>
@@ -18,47 +19,4 @@ layout: default
       <img src='/images/logo.png' class='logo'/>
     </div>
   </div>
-</div>
-
-<div class='contact content' style='display: none'>
-  <h2>Contact Information</h2>
-  <p>Doug DelPidio</p>
-  <p>Email: <a href='mailto:doug@676fix.org'>doug@676fix.org</a></p>
-  <p>Phone: <a href='tel:856-906-4175'>856-906-4175</a></p>
-</div>
-
-<div class='register content' style='display: none'>
-  <h2>Register</h2>
-  <div class='instructions'>
-    <p>Request to join our Secure Facebook Feed and privately discuss with coworkers issues on the shop floor.</p>
-    <p>Please enter your job title and location in the form below to be enrolled.</p>
-  </div>
-
-  <div class='form-error alert alert-danger'>
-    I'm sorry something went wrong. Please try to submit the form again or email your job title and location to <a href='mailto:doug@676fix.org'>doug@676fix.org</a>
-  </div>
-
-  <div class='form-success alert alert-success'>
-    Registration complete! You will receive an invite to join the Facebook group within 48 hours.
-  </div>
-
-  <form id='facebook-register' action="https://676fix.us17.list-manage.com/subscribe/post" method="POST">
-    <input type='hidden' name='u' value='5467aac859ebb46ad65bb9809'>
-    <input type='hidden' name='id' value='207cbb2cce'>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" name="MERGE0" required='true' class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="jobTitle">Job Title</label>
-    <input type="text" name="MERGE1" required='true' class="form-control" id="jobTitle" placeholder="Enter job title">
-  </div>
-  <div class="form-group">
-    <label for="location">Location</label>
-    <input type="text" name="MERGE2" required='true' class="form-control" id="location" placeholder="Enter job location">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-  <div id='playSound'>Play!</div>
 </div>

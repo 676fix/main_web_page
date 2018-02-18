@@ -5,6 +5,7 @@ $('document').ready(function(){
   $( '#facebook-register' ).on('submit', submitForm);
   $( '#video-676fix' ).on('click', playVideo)
   $('.video-poster-image').on('click', playVideo)
+  $('#playSound').on('click', playSound)
 })
 
 function collapseNavBar(event) {

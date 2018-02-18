@@ -24,6 +24,12 @@ h3 {
   cursor: pointer;
 }
 
+#video-676fix {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+}
+
 .home {
   position: relative;
 }
