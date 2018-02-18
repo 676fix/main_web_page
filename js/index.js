@@ -2,6 +2,9 @@ $('#home-video').ready(function(){
   $( '.page' ).on('click', displayPage);
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
+  $( '#playSound').on('click', function() {
+    setTimeout(playSound, 210000)
+  })
 })
 
 function displayPage(event) {
@@ -103,5 +106,5 @@ var musicQueued = false;
 function queueMusic() {
   if (musicQueued === true ) { return }
   musicQueued = true
-  setTimeout(playSound, 210000);
+  $('#playSound').click()
 }
