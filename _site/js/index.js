@@ -1,7 +1,7 @@
 var actionCaptured = false;
 
 $(document).ready(function(){
-  $('*').on('click focus focusin focusout hover keydown keypress keyup mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup scroll', captureAction)
+  $('*').on('click keydown mousemove scroll mobileinit scrollstart tap taphold vclick', captureAction)
   $( '.page' ).on('click', displayPage);
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
