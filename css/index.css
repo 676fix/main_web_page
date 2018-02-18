@@ -19,7 +19,7 @@ h3 {
   margin-top: 50px;
 }
 
-.home .container {
+.home .container, .voting-info .container {
   margin: 10px 0;
   cursor: pointer;
 }
