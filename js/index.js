@@ -1,9 +1,11 @@
+var audio = new Audio('/sounds/solidarity-forever.mp3')
+
 $('#home-video').ready(function(){
   $( '.page' ).on('click', displayPage);
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
   $( '#playSound').on('click', function() {
-    setTimeout(playSound, 210000)
+    setTimeout(playSound, 2000)
   })
 })
 
@@ -68,7 +70,6 @@ function submitForm(event) {
 }
 
 function playSound() {
-  var audio = new Audio('/sounds/solidarity-forever.mp3')
   audio.currentTime = 25;
   audio.play();
 }
