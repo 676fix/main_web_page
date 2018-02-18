@@ -4,8 +4,7 @@ $('document').ready(function(){
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
   $( '#video-676fix' ).on('click', playVideo)
-  $('.video-poster-image').on('click', playVideo)
-  $('#playSound').on('click', playSound)
+  soundTimeoutId = setTimeout(playSound, 210000)
 })
 
 function collapseNavBar(event) {
@@ -42,13 +41,13 @@ function playSound() {
 function playVideo() {
     var video = $('#video-676fix')[0]
     var timeoutSeconds
-    $('.video-poster-image').toggle()
-    if( $('.video-poster-image').css('display') === 'none' ) {
+    clearTimeout(soundTimeoutId)
+
+    if( video.paused === true ) {
       timeoutSeconds = 210000 - (Math.round(video.currentTime * 1000))
       video.play()
       soundTimeoutId = setTimeout(playSound, timeoutSeconds)
     } else {
       video.pause()
-      clearTimeout(soundTimeoutId)
     }
 }
