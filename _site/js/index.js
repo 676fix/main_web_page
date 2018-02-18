@@ -1,16 +1,15 @@
-var actionCaptured = false;
+var musicQueued = false;
 
 $(document).ready(function(){
-  $('*').on('click keydown mousemove scroll mobileinit scrollstart tap taphold vclick', captureAction)
+  $('*').on('click tap taphold vclick', queueMusic)
   $( '.page' ).on('click', displayPage);
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
 })
 
-function captureAction() {
+function queueMusic() {
   if (actionCaptured === true ) { return }
-  actionCaptured = true
-  startVideo()
+  musicQueued = true
   setTimeout(playSound, 210000);
 }
 
