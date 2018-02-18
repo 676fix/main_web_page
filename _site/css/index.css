@@ -21,6 +21,26 @@ h3 {
 
 .home .container {
   margin: 10px 0;
+  cursor: pointer;
+}
+
+.home {
+  position: relative;
+}
+
+.home .video-poster-image {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  top: 50%;
+  left: 44%;
+  border-radius: 25%;
+  z-index: 1;
+  background: url('/images/playbutton.png') center no-repeat;
+}
+
+.home .video-poster-image:hover {
+  cursor: pointer;
 }
 
 .logo {

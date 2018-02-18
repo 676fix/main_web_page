@@ -1,48 +1,11 @@
-var audio = new Audio('/sounds/solidarity-forever.mp3')
+var soundTimeoutId
 
-$('#home-video').ready(function(){
-  $( '.page' ).on('click', displayPage);
+$('document').ready(function(){
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
-  $( '#playSound').on('click', function() {
-    setTimeout(playSound, 2000)
-  })
+  $( '#video-676fix' ).on('click', playVideo)
+  $('.video-poster-image').on('click', playVideo)
 })
-
-function displayPage(event) {
-  var link, content
-  event.preventDefault();
-
-  link = $(event.target)
-  $('a').removeClass('active')
-  link.addClass('active')
-
-  start_or_stop_video(link.text())
-
-  $('.content').hide()
-  content = '.' + link.data('content')
-  $(content).show()
-}
-
-function start_or_stop_video(text) {
-  var iframe = $('iframe').get(0)
-  if( iframe === undefined ) { return }
-  if (text == 'Home' ) {
-    startVideo()
-  } else {
-    stopVideo()
-  }
-}
-
-function stopVideo() {
-  var iframe = $('iframe').get(0)
-  iframe.src = iframe.src.replace(/[?].+/, '')
-}
-
-function startVideo() {
-  var iframe = $('iframe').get(0)
-  iframe.src = iframe.src + '?autoplay=1'
-}
 
 function collapseNavBar(event) {
   if ($(event.target).hasClass('dropdown-toggle')) { return }
@@ -70,42 +33,21 @@ function submitForm(event) {
 }
 
 function playSound() {
+  var audio = new Audio('/sounds/solidarity-forever.mp3')
   audio.currentTime = 25;
   audio.play();
 }
 
-/******************
-    YoutubeAPI
-******************/
-
-  var tag = document.createElement('script');
-  tag.id = 'youtube-api';
-  tag.src = 'https://www.youtube.com/iframe_api';
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('youtube-video', {
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-    });
-  }
-
-  function onPlayerReady(event) {
-    // alert('Youtube API is working!');
-  }
-
-  function onPlayerStateChange(event) {
-    queueMusic();
-  }
-
-var musicQueued = false;
-
-function queueMusic() {
-  if (musicQueued === true ) { return }
-  musicQueued = true
-  $('#playSound').click()
+function playVideo() {
+    var video = $('#video-676fix')[0]
+    var timeoutSeconds
+    $('.video-poster-image').toggle()
+    if( $('.video-poster-image').css('display') === 'none' ) {
+      timeoutSeconds = 210000 - (Math.round(video.currentTime * 1000))
+      video.play()
+      soundTimeoutId = setTimeout(playSound, timeoutSeconds)
+    } else {
+      video.pause()
+      clearTimeout(soundTimeoutId)
+    }
 }
