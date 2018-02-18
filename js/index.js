@@ -1,6 +1,7 @@
 $(document).ready(function(){
   $( '.page' ).on('click', displayPage)
   $( 'nav a' ).on('click', collapseNavBar)
+  $( '#facebook-register' ).on('submit', submitForm)
 })
 
 function displayPage(event) {
@@ -41,4 +42,24 @@ function startVideo(src) {
 function collapseNavBar(event) {
   if ($(event.target).hasClass('dropdown-toggle')) { return }
   $('.navbar-toggler').click()
+}
+
+function submitForm(event) {
+  event.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: $(this).attr('action') + '-json?c=?',
+    data: $(this).serialize(),
+    dataType: 'json'
+  })
+   .done(function(data) {
+      if(data.result == 'error') {
+        $('.form-error').show()
+      } else {
+        $('#facebook-register').toggle()
+        $('.instructions').toggle()
+        $('.form-success').toggle()
+        $('.form-error').hide()
+      }
+   })
 }

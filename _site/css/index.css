@@ -49,3 +49,7 @@ h3 {
 .contact a {
   color: blue;
 }
+
+.form-error, .form-success {
+  display: none;
+}
