@@ -1,17 +1,8 @@
-var musicQueued = false;
-
-$(document).ready(function(){
-  $('*').on('click tap taphold vclick', queueMusic)
+$('#home-video').ready(function(){
   $( '.page' ).on('click', displayPage);
   $( 'nav a' ).on('click', collapseNavBar);
   $( '#facebook-register' ).on('submit', submitForm);
 })
-
-function queueMusic() {
-  if (musicQueued === true ) { return }
-  musicQueued = true
-  setTimeout(playSound, 210000);
-}
 
 function displayPage(event) {
   var link, content
@@ -74,15 +65,43 @@ function submitForm(event) {
 }
 
 function playSound() {
-  var audio = $('#playSound')[0]
+  var audio = new Audio('/sounds/solidarity-forever.mp3')
   audio.currentTime = 25;
   audio.play();
 }
 
-function playSoundWhenVideoEnds() {
-  setTimeout(playSound, 3000);
-}
+/******************
+    YoutubeAPI
+******************/
 
-function alertFunc() {
-  alert('hello!')
+  var tag = document.createElement('script');
+  tag.id = 'youtube-api';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-video', {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+    });
+  }
+
+  function onPlayerReady(event) {
+    // alert('Youtube API is working!');
+  }
+
+  function onPlayerStateChange(event) {
+    queueMusic();
+  }
+
+var musicQueued = false;
+
+function queueMusic() {
+  if (musicQueued === true ) { return }
+  musicQueued = true
+  setTimeout(playSound, 210000);
 }
