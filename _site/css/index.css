@@ -103,4 +103,9 @@ h3 {
 
 .shop-steward p {
   margin: 5px 0;
+  font-size: 12px;
+}
+
+.shop-steward img {
+  max-width: 100%;
 }
