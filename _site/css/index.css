@@ -89,3 +89,18 @@ h3 {
   height: 312px;
   max-width: 560px;
 }
+
+/* Shop Stewards */
+
+.shop-stewards h3 {
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.shop-steward {
+  margin: 5px 0;
+}
+
+.shop-steward p {
+  margin: 5px 0;
+}
